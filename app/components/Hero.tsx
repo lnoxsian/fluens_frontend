@@ -4,10 +4,13 @@ export default function Hero() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      // Add a small delay for visual feedback
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 200);
     }
   };
 
@@ -43,26 +46,16 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
             <button
               onClick={() => scrollToSection('technology')}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold rounded-full text-lg hover:from-blue-700 hover:to-violet-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold rounded-full text-lg hover:from-blue-700 hover:to-violet-700 transition-all duration-500 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
             >
               Explore the Innovation
             </button>
             <button
               onClick={() => scrollToSection('prototype')}
-              className="px-8 py-4 border-2 border-blue-400 text-blue-400 font-semibold rounded-full text-lg hover:bg-blue-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-4 border-2 border-blue-400 text-blue-400 font-semibold rounded-full text-lg hover:bg-blue-400 hover:text-gray-900 transition-all duration-500 transform hover:scale-105 active:scale-95"
             >
               Watch Demo
             </button>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-            <div className="flex flex-col items-center space-y-2">
-              <span className="text-gray-400 text-sm">Scroll to explore</span>
-              <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce"></div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

@@ -17,10 +17,13 @@ export default function Navbar() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      // Add a small delay for visual feedback
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 150);
     }
   };
 
@@ -35,7 +38,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
       isScrolled 
         ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-700' 
         : 'bg-transparent'
@@ -45,9 +48,9 @@ export default function Navbar() {
           {/* Logo */}
           <div 
             onClick={() => scrollToSection('home')}
-            className="cursor-pointer"
+            className="cursor-pointer transform transition-all duration-300 hover:scale-105 active:scale-95"
           >
-            <h1 className={`text-2xl font-bold transition-colors duration-300 ${
+            <h1 className={`text-2xl font-bold transition-all duration-500 ease-out ${
               isScrolled ? 'text-white' : 'text-white'
             }`}>
               FLUENS
@@ -60,18 +63,19 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-blue-400 ${
+                className={`text-sm font-medium transition-all duration-500 ease-out transform hover:scale-110 hover:text-blue-400 active:scale-95 relative group ${
                   isScrolled ? 'text-gray-300' : 'text-white/90'
                 }`}
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-violet-400 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className={`p-2 rounded-md transition-colors duration-300 ${
+            <button className={`p-2 rounded-md transition-all duration-300 transform hover:scale-110 active:scale-95 ${
               isScrolled ? 'text-gray-300' : 'text-white'
             }`}>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

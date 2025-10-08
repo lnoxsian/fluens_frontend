@@ -26,6 +26,29 @@
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem; /* Account for fixed navbar */
+}
+
+/* Enhanced smooth scrolling with custom timing */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Custom scroll behavior for webkit browsers */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, a, [role="button"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced hover and focus states */
+button:hover, a:hover, [role="button"]:hover {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hide scrollbar for webkit browsers while maintaining functionality */
