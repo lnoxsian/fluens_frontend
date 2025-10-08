@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
+        ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-700' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export default function Navbar() {
             className="cursor-pointer"
           >
             <h1 className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
+              isScrolled ? 'text-white' : 'text-white'
             }`}>
               FLUENS
             </h1>
@@ -60,8 +60,8 @@ export default function Navbar() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-blue-600 ${
-                  isScrolled ? 'text-gray-700' : 'text-white/90'
+                className={`text-sm font-medium transition-colors duration-300 hover:text-blue-400 ${
+                  isScrolled ? 'text-gray-300' : 'text-white/90'
                 }`}
               >
                 {item.label}
@@ -72,7 +72,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button className={`p-2 rounded-md transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700' : 'text-white'
+              isScrolled ? 'text-gray-300' : 'text-white'
             }`}>
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
